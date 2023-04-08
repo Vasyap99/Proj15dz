@@ -10,6 +10,12 @@
 class Chat {
     public:
         Chat();
+        ~Chat(){
+       	    for(int i=0;i<mem_size;i++){
+       	    	delete data[i].pass_sha1_hash;
+			}
+        	delete data;
+		}
         void reg(char _login[LOGINLENGTH], char _pass[], int pass_length);
         bool login(char _login[LOGINLENGTH], char _pass[], int pass_length);
         
@@ -132,6 +138,7 @@ public:
 	            // перебираем все узлы в списке
     	    }
 	    }
+	    delete array0;
 	}	
 		                
 };//
